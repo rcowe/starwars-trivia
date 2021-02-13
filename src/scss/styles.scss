@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
+@import "reset";
+@import "core/neat";
+
+
+@font-face {
+  src:url("src/scss/font/STARWARS") format("truetype");
+  font-weight:normal;
+  font-style:normal;
+  font-family:"STARWARS";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+}
