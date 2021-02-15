@@ -2,12 +2,11 @@
 @import "reset";
 @import "core/neat";
 
-
 //@font-face {
-//  src:url("src/scss/font/STARWARS") format("truetype");
-//  font-weight:normal;
-//  font-style:normal;
-//  font-family:"STARWARS";
+//  src: url(/fonts/STARWARS/STARWARS.TTF);
+//  font-family: Star Jedi;
+//  font-weight: normal;
+//  font-style: normal;
 //}
 
 * {
@@ -16,10 +15,41 @@
 }
 
 body {
-  background-color: pink;
-  color: black;
+  background-color: black;
+  color: yellow;
 }
 
 h1 {
-  color: darkblue;
+  color: yellow;
+
+  //font-family: 'Star Jedi', arial;
+}
+
+p {
+  color: yellow;
+  //font-family: 'Star Jedi', arial;
+}
+
+.NavBar {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 30px;
+  background-color: darkgray;
+}
+
+.HomePage {
+
+}
+
+.AboutPage {
+
+}
+
+.ContactPage{
+
+}
+
+.AppPage {
+
 }
