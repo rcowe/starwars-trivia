@@ -77,7 +77,12 @@ const questions = [
 			'https://res.cloudinary.com/di5thiyyl/image/upload/v1613030051/StarWarsMovies/han-solo_vdudcb.png',
 		answer: 'Han Solo',
 		value: 25
-	},
+	}
 ];
 
-module.exports = questions;
+const randomizer = () => {
+	let object = questions[Math.floor(Math.random() * questions.length)];
+	return object;
+};
+
+module.exports = randomizer();

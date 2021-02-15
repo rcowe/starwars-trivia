@@ -42,7 +42,7 @@ const randomQs = [
 
 const randomizer = () => {
 	let answers = randomQs[Math.floor(Math.random() * randomQs.length)];
-	console.log(answers);
+	// console.log(answers);
 	return answers;
 };
 

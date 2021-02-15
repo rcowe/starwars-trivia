@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import Questions from '/data/quesdb';
 import { Link } from 'react-router-dom';
 
-
-
 export default function App(props) {
-	const [question, setQuestion] = useState(Questions);
+	const [question, setQuestion] = useState();
 
 	return (
 		<div>
