@@ -1,25 +1,48 @@
-import React, { useState } from 'react';
-import EasyQuestions from '/data/easyQuestions';
-import RandomAns from '../../data/randomGen';
-// import { reload } from 'browser-sync';
-
-/* This Page is for all the easy rated questions */
+import React, { useState, useEffect } from 'react';
+import Container from '../components/GameContainer';
 
 export default function GameLevel1(props) {
-	const [questions, setQuestion] = useState(EasyQuestions);
+	const randomizer = () => {
+		let rdm = Math.floor(Math.random() * 31);
+		return rdm;
+	};
+
+	const [query, updateQuery] = useState({
+		baseURL: 'https://api-starwars-trivia-game-seir.herokuapp.com/questions/',
+		random: randomizer(),
+		searchURL: ''
+	});
+
+	const [currentQuestion, updateQuestion] = useState({});
+
+	useEffect(() => {
+		(async () => {
+			try {
+				const response = await fetch(query.searchURL);
+				const data = await response.json();
+				await updateQuestion(data);
+			} catch (error) {
+				console.error(error);
+			}
+		})();
+	}, [query]);
 
 	const handleChange = e => {
-		setQuestion(e.target.value);
+		updateQuery({
+			...query,
+			...{
+				[e.target.id]: e.target.value
+			}
+		});
 	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		setQuestion({
-			...questions
+		updateQuery({
+			...query,
+			searchURL: query.baseURL + query.random
 		});
 	};
-
-	const loadQuestion = () => {};
 
 	return (
 		<div className="level1-page">
@@ -38,46 +61,25 @@ export default function GameLevel1(props) {
 				</form>
 				<div className="container">
 					<div className="question-container">
-						<h1>{questions.question}</h1>
-					</div>
-					{/*<div>*/}
-					{/*	{question[0].question.img && question[0].question.img.length ?*/}
-					{/*		*/}
-					{/*	}*/}
-					{/*</div>*/}
-					<div className="score-box">{/*<h2>Score: {score}</h2>*/}</div>
-					<div className="answer-btns">
-						<button className="option1-btn">{RandomAns()}</button>
-						<button className="option2-btn">{RandomAns()}</button>
-						<button className="correct-btn">{questions.answer}</button>
-						<button className="option3-btn">{RandomAns()}</button>
+						{/*{currentQuestion.map(question => {*/}
+						{/*	return (*/}
+						{/*		<Container*/}
+						{/*			key={`${question.id}`}*/}
+						{/*			currentQuestion={currentQuestion}*/}
+						{/*		/>*/}
+						{/*	);*/}
+						{/*})}*/}
+						{Object.keys(currentQuestion).length ? (
+							<Container
+								key={`${questions.id}`}
+								currentQuestion={currentQuestion}
+							/>
+						) : (
+							''
+						)}
 					</div>
 				</div>
 			</div>
 		</div>
-
-		// 	{Object.keys(currentQuestion).length ? (
-		// 		<div className="container">
-		// 			<div className="question-container">
-		// 				<h1>{question[0].question}</h1>
-		// 			</div>
-		// 			{/*<div>*/}
-		// 			{/*	{question[0].question.img && question[0].question.img.length ?*/}
-		// 			{/*		*/}
-		// 			{/*	}*/}
-		// 			{/*</div>*/}
-		// 			<div className="score-box">{/*<h2>Score: {score}</h2>*/}</div>
-		// 			<div className="answer-btns">
-		// 				<button className="option1-btn">{RandomAns()}</button>
-		// 				<button className="option2-btn">{RandomAns()}</button>
-		// 				<button className="correct-btn">{question[1].answer}</button>
-		// 				<button className="option3-btn">{RandomAns()}</button>
-		// 			</div>
-		// 		</div>
-		// 	) : (
-		// 		''
-		// 	)}
-		// </div>
-		// </div>
 	);
 }
