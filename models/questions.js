@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const quesSchema = new Schema({
-	id: Number,
+	id: String,
 	difficulty: String,
 	question: String,
 	img: String,

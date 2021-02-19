@@ -2,12 +2,18 @@
 @import "reset";
 @import "core/neat";
 
-//@font-face {
-//  src: url(/fonts/STARWARS/STARWARS.TTF);
-//  font-family: Star Jedi;
-//  font-weight: normal;
-//  font-style: normal;
-//}
+
+//@include font-face(starWarstypeface, "/fonts/starWarstypeface");
+
+@font-face {
+  font-family: starSolid;
+  src: url(/fonts/starWarstypeface/Starjedi.ttf) format("truetype");
+}
+
+@font-face {
+  src: url(/fonts/starWarstypeface/Strjmono.ttf) format("truetype");
+  font-family: starMono;
+}
 
 * {
   margin: 0;
@@ -21,13 +27,12 @@ body {
 
 h1 {
   color: yellow;
-
-  //font-family: 'Star Jedi', arial;
+  font-family: starMono;
 }
 
 p {
   color: yellow;
-  //font-family: 'Star Jedi', arial;
+  font-family: starSolid;
 }
 
 .NavBar {

@@ -2,9 +2,8 @@ import React from 'react';
 import App from '../pages/App';
 import Contact from '../pages/Contact';
 import Home from '../pages/Home';
-import GameLevel1 from '../pages/GameLevel1';
-import GameLevel2 from '../pages/GameLevel2';
-import GameLevel3 from '../pages/GameLevel3';
+import GameTrivia from '../pages/GameTrivia';
+import HowFastCanUType from '../pages/HowFastCanUType';
 import Login from '../pages/Login';
 
 const routes = [
@@ -14,19 +13,14 @@ const routes = [
 		path: '/home'
 	},
 	{
-		Component: GameLevel1,
+		Component: GameTrivia,
 		key: 'GameLevel1',
 		path: '/level1'
 	},
 	{
-		Component: GameLevel2,
+		Component: HowFastCanUType,
 		key: 'GameLevel2',
 		path: '/level2'
-	},
-	{
-		Component: GameLevel3,
-		key: 'GameLevel3',
-		path: '/level3'
 	},
 	{
 		Component: Contact,

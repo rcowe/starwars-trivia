@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Container from '../components/GameContainer';
 
-export default function GameLevel1(props) {
+export default function GameTrivia(props) {
 	const randomizer = () => {
 		let rdm = Math.floor(Math.random() * 31);
 		return rdm;
@@ -9,7 +9,7 @@ export default function GameLevel1(props) {
 
 	const [query, updateQuery] = useState({
 		baseURL: 'https://api-starwars-trivia-game-seir.herokuapp.com/questions/',
-		random: randomizer(),
+		random: '',
 		searchURL: ''
 	});
 
@@ -20,6 +20,7 @@ export default function GameLevel1(props) {
 			try {
 				const response = await fetch(query.searchURL);
 				const data = await response.json();
+				console.log(data);
 				await updateQuestion(data);
 			} catch (error) {
 				console.error(error);
@@ -29,7 +30,7 @@ export default function GameLevel1(props) {
 
 	const handleChange = e => {
 		updateQuery({
-			...query,
+			...currentQuestion,
 			...{
 				[e.target.id]: e.target.value
 			}
@@ -40,15 +41,23 @@ export default function GameLevel1(props) {
 		e.preventDefault();
 		updateQuery({
 			...query,
-			searchURL: query.baseURL + query.random
+			searchURL: query.baseURL + randomizer()
 		});
 	};
+
+	//score
+	const [score, updateScore] = useState(0);
+
+	const incrementScore = e => updateScore(score + currentQuestion.value);
+
+	const decrementScore = e =>
+		score === 0 ? updateScore(0) : updateScore(score - currentQuestion.value);
 
 	return (
 		<div className="level1-page">
 			<header className="level1-header">
 				<h1>Star Wars Trivia</h1>
-				<h2>Level 1</h2>
+				<h1>Score: {score}</h1>
 			</header>
 			<div className="level1-questions-container">
 				<form onSubmit={handleSubmit}>
@@ -61,18 +70,14 @@ export default function GameLevel1(props) {
 				</form>
 				<div className="container">
 					<div className="question-container">
-						{/*{currentQuestion.map(question => {*/}
-						{/*	return (*/}
-						{/*		<Container*/}
-						{/*			key={`${question.id}`}*/}
-						{/*			currentQuestion={currentQuestion}*/}
-						{/*		/>*/}
-						{/*	);*/}
-						{/*})}*/}
 						{Object.keys(currentQuestion).length ? (
 							<Container
-								key={`${questions.id}`}
+								key={`${currentQuestion.id}`}
 								currentQuestion={currentQuestion}
+								score={score}
+								updateScore={updateScore}
+								incrementScore={incrementScore}
+								decrementScore={decrementScore}
 							/>
 						) : (
 							''
