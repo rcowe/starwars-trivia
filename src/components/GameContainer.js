@@ -14,7 +14,7 @@ export default function GameContainer({
 	return (
 		<div className="container" key={`${currentQuestion.id}`}>
 			<div className="question-container">
-				<h1>{currentQuestion.question}</h1>
+				<h2>{currentQuestion.question}</h2>
 			</div>
 			<div>
 				{currentQuestion.img && currentQuestion.img.length ? (
@@ -23,7 +23,7 @@ export default function GameContainer({
 						<img src={`${currentQuestion.img}`} />{' '}
 					</div>
 				) : (
-					''
+					'.'
 				)}
 				{/*{(currentQuestion.img && currentQuestion.img.length) ? <div>{currentQuestion.img}<div> : '' }*/}
 			</div>
@@ -32,13 +32,13 @@ export default function GameContainer({
 				<button type="button" className="option1-btn" onClick={decrementScore}>
 					{RandomAns()}
 				</button>
-				<button type="button" className="option2-btn">
+				<button type="button" className="option2-btn" onClick={decrementScore}>
 					{RandomAns()}
 				</button>
 				<button type="button" className="correct-btn" onClick={incrementScore}>
 					{currentQuestion.answer}
 				</button>
-				<button type="button" className="option3-btn">
+				<button type="button" className="option3-btn" onClick={decrementScore}>
 					{RandomAns()}
 				</button>
 			</div>

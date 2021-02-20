@@ -54,10 +54,10 @@ export default function GameTrivia(props) {
 		score === 0 ? updateScore(0) : updateScore(score - currentQuestion.value);
 
 	return (
-		<div className="level1-page">
+		<div className="TriviaPage">
 			<header className="level1-header">
 				<h1>Star Wars Trivia</h1>
-				<h1>Score: {score}</h1>
+				<h2>Score: {score}</h2>
 			</header>
 			<div className="level1-questions-container">
 				<form onSubmit={handleSubmit}>

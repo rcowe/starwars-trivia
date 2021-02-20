@@ -1,10 +1,11 @@
 import React from 'react';
 import App from '../pages/App';
-import Contact from '../pages/Contact';
+import UpdateQuestion from '../pages/UpdateQuestion';
 import Home from '../pages/Home';
 import GameTrivia from '../pages/GameTrivia';
 import HowFastCanUType from '../pages/HowFastCanUType';
-import Login from '../pages/Login';
+import APIManagement from '../pages/APIManagement';
+import Question from '../pages/SingleQuestion';
 
 const routes = [
 	{
@@ -14,27 +15,32 @@ const routes = [
 	},
 	{
 		Component: GameTrivia,
-		key: 'GameLevel1',
-		path: '/level1'
+		key: 'Trivia',
+		path: '/trivia'
 	},
 	{
 		Component: HowFastCanUType,
-		key: 'GameLevel2',
-		path: '/level2'
+		key: 'How Fast Can U Type',
+		path: '/typing'
 	},
 	{
-		Component: Contact,
-		key: 'Contact',
-		path: '/contact'
+		Component: APIManagement,
+		key: 'API Management',
+		path: '/apiManagement'
 	},
 	{
-		Component: Login,
-		key: 'Login',
-		path: '/login'
+		Component: UpdateQuestion,
+		key: 'UpdateQuestion',
+		path: '/apiManagement/:id/edit'
+	},
+	{
+		Component: Question,
+		key: 'SingleQuestion',
+		path: '/apiManagement/:id'
 	},
 	{
 		Component: App,
-		key: 'App',
+		key: '',
 		path: '/'
 	}
 ];

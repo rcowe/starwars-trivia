@@ -3,8 +3,6 @@
 @import "core/neat";
 
 
-//@include font-face(starWarstypeface, "/fonts/starWarstypeface");
-
 @font-face {
   font-family: starSolid;
   src: url(/fonts/starWarstypeface/Starjedi.ttf) format("truetype");
@@ -21,19 +19,20 @@
 }
 
 body {
-  background-color: black;
+  background-color: rgb(20,20,20);
   color: yellow;
+  position: relative;
+  overflow: hidden;
 }
 
 h1 {
-  color: yellow;
   font-family: starMono;
 }
 
-p {
-  color: yellow;
-  font-family: starSolid;
+h2 {
+  font-family: Roboto, sans-serif;
 }
+
 
 .NavBar {
   display: flex;
@@ -43,18 +42,86 @@ p {
   background-color: darkgray;
 }
 
-.HomePage {
+
+.TriviaPage {
+  display: flex;
+  justify-content: center;
+  font-size: 3vw;
+  height: 100%;
+  width: 100%;
+    .level1-header{
+      display: flex;
+      justify-content: center;
+      padding-top: 50px;
+      h2 {
+        position: relative;
+      }
+    }
+}
+
+.HowFastCanUTypePage {
+  display: flex;
+  height: 100%;
+  width: 60%;
+  margin: 0 auto;
+  .container {
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    perspective: 450px;
+      .scroll-text {
+        font-family: Roboto, sans-serif;
+        //border: 1px solid aliceblue;
+        font-size: 3vw;
+        font-weight: bold;
+        text-align: justify;
+        position: relative;
+        animation: scroll 120s linear forwards;
+      }
+  }
+}
+
+@keyframes scroll {
+  from { top: 0; transform: translateZ(0) rotateX(20deg)}
+  to { top: -750px; transform: translateZ(-2500px) rotateY(21deg)}
 
 }
 
-.AboutPage {
+.page-title-type{
+  display: flex;
+  justify-content: center;
+  font-size: xxx-large;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 
+textarea {
+  display: flex;
+  height: 50%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.restart-btn{
+  display: flex;
+  justify-content: center;
+}
+
+.restart-btn-btn{
+  argin: 3rem auto 0.5rem;
+  background-color: #fEfE95;
+  width: 65%;
+  height: 3rem;
+  font-size: 2rem;
+  box-shadow: 0 4px 8px rgba(#8E6E95, 0.2);
 }
 
 .ContactPage{
 
 }
 
-.AppPage {
-
+.Api-mgmt-Page {
+  background-color: white;
+  color: black;
+  font-family: Roboto, sans-serif;
 }

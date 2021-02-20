@@ -2,7 +2,7 @@ const Question = require('../models/questions');
 const express = require('express');
 const quesRouter = express.Router();
 
-quesRouter.post('/', async (req, res) => {
+quesRouter.post('/apiManagement', async (req, res) => {
 	try {
 		const newQuestion = await Question.create(req.body);
 		res
@@ -16,7 +16,7 @@ quesRouter.post('/', async (req, res) => {
 });
 
 /* Index */
-quesRouter.get('/', async (req, res) => {
+quesRouter.get('/apiManagement', async (req, res) => {
 	try{
 		const foundQuestions = await Question.find({})
 			res
@@ -30,7 +30,7 @@ quesRouter.get('/', async (req, res) => {
 });
 
 /* Show */
-quesRouter.get('/:id', async(req, res) => {
+quesRouter.get('/apiManagement/:id', async(req, res) => {
 	try {
 		const foundQuestion = await Question.findById(req.params.id)
 		res
@@ -44,7 +44,7 @@ quesRouter.get('/:id', async(req, res) => {
 });
 
 /* Destroy */
-quesRouter.delete('/:id', async (req, res) => {
+quesRouter.delete('/apiManagement/:id', async (req, res) => {
 	try {
 		const foundQuestion = await Question.findByIdAndDelete(req.params.id)
 		res
@@ -58,7 +58,7 @@ quesRouter.delete('/:id', async (req, res) => {
 })
 
 /* Update */
-quesRouter.put('/:id', async (req, res) => {
+quesRouter.put('/apiManagement/:id', async (req, res) => {
 	try {
 		const foundQuestion = await Question.findByIdAndUpdate(req.params.id, req.body, { new: true } )
 

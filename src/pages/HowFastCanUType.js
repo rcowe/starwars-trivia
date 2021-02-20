@@ -58,22 +58,23 @@ class HowFastCanUType extends Component {
 
 	render() {
 		return (
-			<div className="container mt-5 mb-5">
-				<div className="row">
-					<div className="col-md-6 offset-md-3">
+			<div className="HowFastCanUTypePage">
+				<div className="container">
+					<h1 className="page-title-type">Star Wars Type Test</h1>
+					<div className="scroll-text">
 						<Preview text={this.state.text} userInput={this.state.userInput} />
-						<textarea
-							value={this.state.userInput}
-							onChange={this.onUserInputChange}
-							className="form-control mb-3"
-							placeholder="Start Typing Here..."
-						></textarea>
-						<Speed letters={this.state.letters} seconds={this.state.seconds} />
-						<div className="text-right">
-							<button className="btn btn-light" onClick={this.onRestart}>
-								Restart
-							</button>
-						</div>
+					</div>
+					<textarea
+						value={this.state.userInput}
+						onChange={this.onUserInputChange}
+						className="form-control mb-3"
+						placeholder="Start Typing Here..."
+					></textarea>
+					<Speed letters={this.state.letters} seconds={this.state.seconds} />
+					<div className="restart-btn">
+						<button className="restart-btn-btn" onClick={this.onRestart}>
+							Restart
+						</button>
 					</div>
 				</div>
 			</div>
