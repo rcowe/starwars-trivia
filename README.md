@@ -1,14 +1,17 @@
-# App Name
-
+# App Name: Star Wars Trivia Full CRUD
 
 ## App Demo:
 
-
 ## Concept
-
+Star Wars Questions with a self-created API that is updateable through the APP.
 
 ## Built Using
 
+- React
+- Express
+- Sass
+- MongoDB
+- Node.js
 
 ### Credits:
 
@@ -20,8 +23,10 @@
 
 
 ## MVP
-- MVP 1
-- MVP 2
+- Full CRUD: App is still missing UPDATE and DELETE
+- Router
+- 3rd Party API
+- Model
 
 ## Challenges and Next Features
 
