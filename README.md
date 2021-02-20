@@ -16,7 +16,7 @@ Star Wars Questions with a self-created API that is updateable through the APP.
 - Node.js
 - Packages:
     - JSON Server
-    - Mock API, self created
+    - Mock API, self created: https://api-starwars-trivia-game-seir.herokuapp.com/
 ### Credits:
 - My Team!
 - YouTube Devs - Dev Ed, Traversy Media 
